@@ -1,0 +1,64 @@
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+
+}
+
+input {
+    margin: 2px;
+    border: none;
+    outline: none;
+    border-radius: 2.5px;
+    width: 65%;
+    height: 1.5rem;
+    font-size: 1rem;
+    background-color:rgba(0, 0, 0, 0);
+    color:white;
+    border-bottom: 1px solid #fff;
+    /* border: none;
+    outline:none; */
+
+}
+
+.file-upload {
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    border-radius: 500px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    margin-left:18%;
+}
+
+input[type=file] {
+    display: none;
+}
+
+label {
+    text-align: left;
+    margin: auto;
+    width: 65%;
+    opacity: 0.8;
+}
+
+textarea {
+    width: 65%;
+    border-radius: 2.5px;
+    height: 5rem;
+    background-color:rgba(0, 0, 0, 0);
+    color:white;
+}
+
+.top {
+    font-size: 0.8rem;
+}
+
+.bottom {
+    font-size: 0.65rem;
+    font-style: italic;
+}

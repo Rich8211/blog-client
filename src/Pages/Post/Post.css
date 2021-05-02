@@ -1,0 +1,40 @@
+.post-overlay {
+    
+    position: fixed;
+    background-color: rgba(17, 17, 17, 0.9);
+    min-height: 100vh;
+    margin-left: 20%;
+    width: 80%;
+    color: #fff;
+    text-align: center;
+}
+
+.post-overlay-mobile {
+    margin-top: 70px;
+    position: fixed;
+    z-index: 50;
+    background-color: rgba(17, 17, 17, 0.9);
+    min-height: 100vh;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+
+.post-content {
+    max-height: 100vh; 
+    overflow-y: scroll;
+} 
+
+.post-content img {
+    height: 500px;
+}
+
+.post-body {
+    text-align: justify;
+    padding: 20px 15%;
+}
+.post-body-mobile {
+    text-align: justify;
+    padding: 20px 10%;
+}
+

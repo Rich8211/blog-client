@@ -1,0 +1,91 @@
+.overlay {
+    position: fixed;
+    height: 100vh;
+    background-color: rgba(26,26,26,0.8);
+    width: 100%;
+    z-index: 100;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: auto;
+    width: 40%;
+    background-color: #000;
+    border-radius: 5px;
+}
+
+.modal-tablet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: auto;
+    width: 55%;
+    background-color: #000;
+    border-radius: 5px;
+}
+.modal-mobile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: auto;
+    width: 70%;
+    background-color: #000;
+    border-radius: 5px;
+}
+
+.mobile {
+    font-size: 1.2rem;
+}
+
+.close {
+    border: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+}
+
+.close:focus {
+    border: none;
+}
+
+.close img {
+    background: transparent;
+    opacity: 0.9;
+    height: 20px;
+    width: 20px;
+}
+
+.submit {
+    height: 24px;
+    width: 100px;
+    border-radius: 500px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    /* position: absolute; */
+    /* bottom: 20px;
+    left: 50%; */
+    margin: 30px auto;
+    display: flex;
+    cursor: pointer;
+    color: #fff;
+}
+
+
+.modal h2 {
+    margin-top: 50px;
+}
+
+.submit h3{
+    margin: 0 auto;
+}
+
+/* .submit h3:hover {
+    color: #fceea7
+} */
+
