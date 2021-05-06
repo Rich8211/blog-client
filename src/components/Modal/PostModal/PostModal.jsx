@@ -72,7 +72,7 @@ const PostModal = ({history}) => {
     {
         for: "HeaderImage",
         upperLabel: "Header Image*",
-        bottomLabel: "",
+        bottomLabel: postImage ? `${postImage.name}` : '',
         name: "HeaderImage",
         handleChange: updateImage,
         type: "file",
@@ -103,7 +103,6 @@ const PostModal = ({history}) => {
         inputType: "textArea",
     },
     ]
-
 
     return (
         <Modal

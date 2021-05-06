@@ -45,9 +45,8 @@ const Navbar = ({history}) => {
         return (
             <>
                {
-                   user.username ?   
-
-                   <ul>
+                    user.username ?   
+                    <ul>
                         <li>
                             <p onClick={Logout}>Logout</p>
                         </li>
@@ -57,10 +56,10 @@ const Navbar = ({history}) => {
                         <li>
                             <Link to="/posts">Blog</Link>
                         </li>
-                   </ul>
+                    </ul>
                     :
-                   <ul>
-                       <li>
+                    <ul>
+                        <li>
                             <p onClick={handleLogin}>Login</p>
                         </li>
                         <li>
@@ -69,14 +68,13 @@ const Navbar = ({history}) => {
                         <li>
                             <Link to="/posts">Blog</Link>
                         </li>
-                   </ul> 
+                    </ul> 
                }
             </>
         )
     }
 
     return (
-
         <>
         {
             matches ? 
@@ -95,7 +93,6 @@ const Navbar = ({history}) => {
 
                 <i className="fas fa-bars fa-2x" onClick={() => setDisplayOverlay(!displayOverlay)}/>
             </div>    
-
         }
         {
             displayOverlay && 
@@ -105,7 +102,6 @@ const Navbar = ({history}) => {
                 </Link>
                 <img className="close" onClick={() => setDisplayOverlay(!displayOverlay)} src={closeButton} alt="close button"/>
                 <NavBarItems />
-
             </div>
         }
         </>

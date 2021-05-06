@@ -1,6 +1,6 @@
 .navbar {
     position: fixed;
-    min-height: 100vh;
+    height: 100vh;
     background-color: #1a1a1ad5;
     width: 20%;
     

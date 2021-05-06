@@ -12,18 +12,16 @@ import SignUpModal from './components/Modal/SignUpModal/SignUpModal';
 
 import './App.css';
 
-
-
 function App() {
-
+  
   const [user, setUser] = useState({
     username:'',
     id:''
   });
 
-  console.log(user);
-
   const [modal, setModal] = useState('');
+
+  
 
   useEffect(() => {
     const checkLoggedIn = async () => {
@@ -38,7 +36,7 @@ function App() {
     <BrowserRouter >
       <UserContext.Provider value={{user, setUser}}>
         <UtilContext.Provider value={{modal, setModal}}>
-        <div className="App">
+        <div className="App" >
           {
             modal && 
               {

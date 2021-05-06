@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+window.location.hash = '';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

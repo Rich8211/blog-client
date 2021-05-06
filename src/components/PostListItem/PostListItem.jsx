@@ -25,7 +25,7 @@ const PostListItem = ({post}) => {
                 
             </div>
             <p className="post-date">{renderDate(post.createdAt)}</p>
-            <Link className="post-title">
+            <Link to={`/posts/${post._id}`} className="post-title">
                 {post.title}
             </Link>
             

@@ -7,6 +7,7 @@ import './GoogleSignIn.css'
 
 const GoogleSignIn = () => {
 
+
     const smallMatches = useMediaQuery('(max-width:720px)')
     const googleLogin = () => {
         window.open('http://localhost:5000/users/auth/google', "self")
