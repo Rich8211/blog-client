@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import Modal from '../Modal';
 import { UserContext } from '../../../context/userContext';
 import { UtilContext } from '../../../context/utilContext';
@@ -20,7 +20,8 @@ const SignUpModal = ({history}) => {
         passwordCheck: "",
         email: "",
     });
-
+    
+    const [subtitle,setSubtitle] = useState("* Indicates Required Fields");
     const {username, password, passwordCheck, email} = form;
 
     const updateField = (e) => {
@@ -29,10 +30,12 @@ const SignUpModal = ({history}) => {
         [e.target.name]: e.target.value,
         });
     }
-
+    
     const handleSignUp = async (e) => {
         try {
         e.preventDefault();
+        if (missingFields) setMissingFields(false);
+        if (passWordNotMatch) setPasswordNotMatch(false);
         if (!username.trim() || !password.trim() || !passwordCheck.trim() || !email.trim()) {
           setMissingFields(true);
         } else setMissingFields(false);
@@ -60,7 +63,10 @@ const SignUpModal = ({history}) => {
     }
 
 
-
+    useEffect(() => {
+      if (passWordNotMatch) setSubtitle("Password does not match the confirmation.");
+      if (missingFields) setSubtitle("Please fill out all required fields.");
+    }, [passWordNotMatch, missingFields]);
 
     const Inputs = [
         
@@ -104,15 +110,11 @@ const SignUpModal = ({history}) => {
             title={'Create Your Account'}
             submitText={'Sign Up'}
             handleSubmit={handleSignUp}
+            subtitle={subtitle}
             >
             {Inputs.map((input, i) => <FormInput key={i} {...input} />) }
             <GoogleSignIn />
-            {
-              missingFields && <p>Please fill out all required fields.</p>
-            }
-            {
-              passWordNotMatch && <p>Password does not match the confirmation.</p>
-            }
+            
         </Modal>
     )
 }

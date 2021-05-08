@@ -9,7 +9,7 @@ const PostListItem = ({innerRef,post}) => {
     
 
     const matches = useMediaQuery('(min-width:1000px)');
-    const smallMatches = useMediaQuery('(max-width:720px)');
+    const smallMatches = useMediaQuery('(max-width:795px)');
 
     
 

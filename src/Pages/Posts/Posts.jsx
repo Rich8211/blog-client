@@ -8,7 +8,7 @@ import './Posts.css'
 const Posts = () => {
 
     const matches = useMediaQuery('(min-width:1000px)');
-    const smallMatches = useMediaQuery('(max-width:794px)');
+    const smallMatches = useMediaQuery('(max-width:529px)');
 
     const [posts, setPosts] = useState([]);
     const [skip, setSkip] = useState(0);
@@ -35,11 +35,11 @@ const Posts = () => {
     const firstObserver = useRef();
     const firstPostRef = useCallback(
         node => { 
-            console.log(node)
             if (firstObserver.current) firstObserver.current.disconnect();
             firstObserver.current = new IntersectionObserver(entries => {
                 if (entries[0].isIntersecting ) {
                     setSkip(0)
+                    setHasMore(true);
                 }
             });
         if (node) firstObserver.current.observe(node);
@@ -70,8 +70,8 @@ const Posts = () => {
 
 
     return (
-        <div className={matches ? "posts-page" : smallMatches ? "posts-page-mobile": "posts-page-tablet"}>
-            <div className={matches? "post-list" : "post-list-mobile" }>
+        <div className={matches ? "posts-page" : "posts-page-mobile"}>
+            <div className={matches? "post-list" : smallMatches? "post-list-mobile" : "post-list-tablet" }>
                 {posts.length > 0 && posts.map((post,i) => {
                     if (posts.length === i + 1) 
                         return <PostListItem innerRef={lastPostRef} key={post._id} post={post}/>  

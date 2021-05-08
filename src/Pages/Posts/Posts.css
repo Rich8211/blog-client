@@ -10,13 +10,20 @@
     margin: 100px 0 50px;
     display: flex;
     flex-wrap: wrap;
+    
 }
 
+
+.post-list-tablet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
 .post-list-mobile {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content:center;
 }
 
 .posts-page-tablet {
@@ -29,11 +36,8 @@
 
 .posts-page-mobile {
     padding-top: 150px;
-    /* display: flex;
-    flex-wrap: wrap; */
     min-height: 100vh;
     background-color: rgba(115,115,115,0.7);
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
 
-    justify-content: space-around;
 }

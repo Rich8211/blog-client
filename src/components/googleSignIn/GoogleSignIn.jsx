@@ -8,14 +8,14 @@ import './GoogleSignIn.css'
 const GoogleSignIn = () => {
 
 
-    const smallMatches = useMediaQuery('(max-width:720px)')
+    const smallMatches = useMediaQuery('(max-width:720px)');
     const googleLogin = () => {
-        window.open('http://localhost:5000/users/auth/google', "self")
+        window.open('http://localhost:5000/users/auth/google', "self");
     }
     return (
         <div className="googleContainer" onClick={googleLogin}>
             <img src={googleLogo}/>
-            <p className={smallMatches ? "mobile" : ""}>Sign In with Google</p>
+            <span className={smallMatches ? "mobile" : ""}>Sign In with Google</span>
         </div>
     )
 }

@@ -38,7 +38,8 @@
     border-radius: 5px;
 }
 
-.mobile {
+.mobile-title {
+    margin: 50px auto 0;
     font-size: 1.2rem;
 }
 
@@ -77,14 +78,25 @@
 }
 
 
-.modal h2 {
-    margin-top: 50px;
+.title {
+    margin: 50px auto 0;
 }
 
 .submit h3{
     margin: 0 auto;
 }
 
+.modal-subtitle {
+    margin: 0 auto 20px;
+    opacity: 0.8;
+    font-size: 0.8rem;
+}
+
+.modal-subtitle-mobile {
+    margin: 0 auto 20px;
+    opacity: 0.8;
+    font-size: 0.7rem;
+}
 /* .submit h3:hover {
     color: #fceea7
 } */

@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import { withRouter } from 'react-router-dom';
 import { UserContext } from '../../../context/userContext';
 import { UtilContext } from '../../../context/utilContext';
@@ -10,6 +10,9 @@ const PostModal = ({history}) => {
 
     const { user } = useContext(UserContext);
     const { setModal } = useContext(UtilContext);
+
+    const [missingFields, setMissingFields] = useState(false);
+    const [subtitle,setSubtitle] = useState("* Indicates Required Fields");
 
     const [form, setForm] = useState({
         postImage: "",
@@ -51,6 +54,10 @@ const PostModal = ({history}) => {
         e.preventDefault();
         if (!user.username) return;
 
+        setMissingFields(false);
+
+        if (!postImage || !title.trim() || !body.trim())  setMissingFields(true);
+
         try {
             let formData = new FormData();
             formData.append("postImage", postImage);
@@ -60,6 +67,7 @@ const PostModal = ({history}) => {
             formData.append("author", user.username);
             await axios.post("http://localhost:5000/posts/", formData, { withCredentials: true });
             setModal('');
+            history.push('/posts');
             window.location.reload();
         }
         catch (err) {
@@ -67,6 +75,10 @@ const PostModal = ({history}) => {
         }
 
     } 
+
+    useEffect(() => {
+        if (missingFields) setSubtitle("Please fill out all required fields.");
+    },[missingFields]);
 
     const Inputs = [
     {
@@ -88,7 +100,7 @@ const PostModal = ({history}) => {
     },
     {
         for: "categories",
-        upperLabel: "Categories*",
+        upperLabel: "Categories",
         name: "categories",
         handleChange: updateCategories,
         type: "text",
@@ -109,8 +121,10 @@ const PostModal = ({history}) => {
             title={"What Would You Like to Share?"}
             submitText={"Submit"}
             handleSubmit={handlePost}
+            subtitle={subtitle}
         >
             {Inputs.map((input, i) => <FormInput key={i} {...input} />) }
+
         </Modal>
     )
 }
