@@ -15,30 +15,29 @@ const upload = require("../middleware/fileUpload");
 
 const singleUpload = upload.single("postImage");
 
-router.post("/", async (req, res) => {
+router.post("/images", upload.single("postImage"), async (req, res) => {
+    res.json(req.file)
+    // res.json(req.isAuthenticated());
+    // singleUpload(req, res, function (err) {
+    //     if (err) {
+    //       return res.json({
+    //         success: false,
+    //         errors: {
+    //             title: "Image Upload Error",
+    //             detail: err.message,
+    //             error: err,
+    //             },
+    //         });
+    //     }
+    // });
+})
+
+router.post("/", upload.single("postImage"), async (req, res) => {
     const {title, createdAt, tags, body, author} = req.body;
-
-    let location;
-    
-    singleUpload(req, res, function (err) {
-        if (err) {
-          return res.json({
-            success: false,
-            errors: {
-                title: "Image Upload Error",
-                detail: err.message,
-                error: err,
-                },
-            });
-        }
-        location = req.file.location;
-    })
-
-    
     try{ 
         if (req.isAuthenticated()) {
             const newPost = new Post({
-            postImage: location,
+            postImage: req.file.location,
             title,
             createdAt,
             tags,

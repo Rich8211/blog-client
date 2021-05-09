@@ -1,16 +1,23 @@
 const aws = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
+const awsConfig = require('aws-config');
 
 require("dotenv").config();
 
-const s3 = new aws.S3();
+const s3 = new aws.S3(
+    awsConfig({
+        accessKeyId: process.env.S3_ACCESS_KEY,
+        secretAccessKey: process.env.S3_ACCESS_SECRET,
+        region: "us-east-2",
+    })
+);
 
-aws.config.update({
-    secretAccessKey: process.env.S3_ACCESS_SECRET,
-    accessKeyId: process.env.S3_ACCESS_KEY,
-    region: "us-east-2",
-});
+// aws.config.update({
+//     secretAccessKey: process.env.S3_ACCESS_SECRET,
+//     accessKeyId: process.env.S3_ACCESS_KEY,
+//     region: "us-east-2",
+// });
 
 
 const storage = multerS3({
@@ -21,7 +28,7 @@ const storage = multerS3({
       cb(null, {fieldName: "TESTING_METADATA"});
   },
   key: function(req,file,cb) {
-      cb(null, Date.now().toString)
+      cb(null, Date.now().toString())
   }
 })
 
@@ -29,9 +36,9 @@ const upload = multer({
   storage: storage,
   fileFilter: (req, file, cb) => {
       if (
-          file.mimetype == "image/png" ||
-          file.mimetype == "image/jpg" ||
-          file.mimetype == "image/jpeg"
+          file.mimetype === "image/png" ||
+          file.mimetype === "image/jpg" ||
+          file.mimetype === "image/jpeg"
       ) {
           cb(null, true);
       } else {
