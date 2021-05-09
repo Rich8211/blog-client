@@ -13,24 +13,6 @@ const upload = require("../middleware/fileUpload");
 //     },
 // });
 
-const singleUpload = upload.single("postImage");
-
-router.post("/images", upload.single("postImage"), async (req, res) => {
-    res.json(req.file)
-    // res.json(req.isAuthenticated());
-    // singleUpload(req, res, function (err) {
-    //     if (err) {
-    //       return res.json({
-    //         success: false,
-    //         errors: {
-    //             title: "Image Upload Error",
-    //             detail: err.message,
-    //             error: err,
-    //             },
-    //         });
-    //     }
-    // });
-})
 
 router.post("/", upload.single("postImage"), async (req, res) => {
     const {title, createdAt, tags, body, author} = req.body;
